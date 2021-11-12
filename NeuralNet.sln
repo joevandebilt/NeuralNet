@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeuralNet.Core", "NeuralNet.Core\NeuralNet.Core.csproj", "{228A1475-8838-46EC-ACA4-479481384E0B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeuralNet.Webroot", "NeuralNet.Webroot\NeuralNet.Webroot.csproj", "{83113082-56D5-4923-AC6F-749B2A4096A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeuralNet.Db", "NeuralNet.Db\NeuralNet.Db.csproj", "{B3DAEEC0-7EED-4FEC-B1B0-B390756C1970}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeuralNet.Training", "NeuralNet.Training\NeuralNet.Training.csproj", "{156C7212-0490-47DA-8465-49D9F46BBD0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{228A1475-8838-46EC-ACA4-479481384E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{228A1475-8838-46EC-ACA4-479481384E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{228A1475-8838-46EC-ACA4-479481384E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{228A1475-8838-46EC-ACA4-479481384E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83113082-56D5-4923-AC6F-749B2A4096A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83113082-56D5-4923-AC6F-749B2A4096A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83113082-56D5-4923-AC6F-749B2A4096A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83113082-56D5-4923-AC6F-749B2A4096A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3DAEEC0-7EED-4FEC-B1B0-B390756C1970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3DAEEC0-7EED-4FEC-B1B0-B390756C1970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3DAEEC0-7EED-4FEC-B1B0-B390756C1970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3DAEEC0-7EED-4FEC-B1B0-B390756C1970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156C7212-0490-47DA-8465-49D9F46BBD0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156C7212-0490-47DA-8465-49D9F46BBD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156C7212-0490-47DA-8465-49D9F46BBD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156C7212-0490-47DA-8465-49D9F46BBD0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2152AD6E-8B7F-43C5-A8C9-47657EC58176}
+	EndGlobalSection
+EndGlobal
