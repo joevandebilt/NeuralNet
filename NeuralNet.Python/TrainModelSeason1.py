@@ -30,7 +30,7 @@ checkpoint = ModelCheckpoint(get_model_filename(), monitor='loss', verbose=1, sa
 checkpoint.best = bestFit
 desired_callbacks = [checkpoint]
 
-#history = model.fit(X, y, epochs=150, batch_size=512, callbacks=desired_callbacks)
+history = model.fit(X, y, epochs=150, batch_size=512, callbacks=desired_callbacks)
 bestFit = checkpoint.best
 
 num_to_char = dict((i, c) for i, c in enumerate(chars))

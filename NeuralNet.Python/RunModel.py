@@ -1,16 +1,24 @@
 
 import numpy
 import math
-
+import os
 from GenerateData import hard_coded_chars, generate_data_array, generate_prediction_model, create_model, read_all_scripts
 
 #How many characters to generate
 
-file = read_all_scripts()
+file = ""    
+for root, dirs, files in os.walk('./Data/TNG Scripts'):
+    for file in files:
+        if file.endswith('txt'):
+            script_path = os.path.join(root, file)
+
+            print('Reading script' + script_path)
+            file += open(script_path).read()
+
 chars = hard_coded_chars()
 
 script_length = len(file) 
-batches = 90   ##for the number of episodes
+batches = 178   ##for the number of episodes
 batchLength = math.floor(len(file) / batches)
 start = numpy.random.randint(0, script_length - batchLength-1)
 
@@ -28,7 +36,7 @@ start = numpy.random.randint(0, len(x_data) - 1)
 text_output = x_data[start]
 pattern = text_output.copy()
 
-for i in range(500):
+for i in range(1000):
 
     x = numpy.reshape(pattern, (1, len(pattern), 1))
     x = x / float(len(chars))
@@ -44,4 +52,4 @@ for i in range(500):
     pattern.append(index)
     pattern = pattern[1:len(pattern)]
 
-print("I trained a neural net to watch star trek and write it's own script this is what it wrote:\r\n\r\n\t\"", ''.join([num_to_char[value] for value in text_output]), "\"")
+print("\r\n\t\"", ''.join([num_to_char[value] for value in text_output]), "\"")
