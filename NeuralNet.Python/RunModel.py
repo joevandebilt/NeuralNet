@@ -6,29 +6,29 @@ from GenerateData import hard_coded_chars, generate_data_array, generate_predict
 
 #How many characters to generate
 
-file = ""    
+file_content = ""    
 for root, dirs, files in os.walk('./Data/TNG Scripts'):
     for file in files:
         if file.endswith('txt'):
             script_path = os.path.join(root, file)
 
             print('Reading script' + script_path)
-            file += open(script_path).read()
+            file_content += open(script_path).read()
 
 chars = hard_coded_chars()
 
-script_length = len(file) 
+script_length = len(file_content) 
 batches = 178   ##for the number of episodes
-batchLength = math.floor(len(file) / batches)
+batchLength = math.floor(script_length / batches)
 start = numpy.random.randint(0, script_length - batchLength-1)
 
-snippet = file[start:start+batchLength]
+snippet = file_content[start:start+batchLength]
 
 x_data, y_data = generate_data_array(snippet, chars)
 
 X, y = generate_prediction_model(x_data, y_data, chars)
 
-model = create_model(X, y, 0)
+model = create_model(X, y)
 
 num_to_char = dict((i, c) for i, c in enumerate(chars))
 

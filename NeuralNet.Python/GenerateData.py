@@ -13,13 +13,14 @@ def get_sequence_length():
     return 200
 
 def get_model_filename():
-    #return "./NeuralNet.Python/SavedModels/tng_s1_model_weights_saved.hdf5"
-    return "./NeuralNet.Python/SavedModels/tng_s1234567_model_weights_saved.hdf5"
+    #return "./NeuralNet.Python/SavedModels/tng_s1_model_4L.hdf5"
+    #return "./NeuralNet.Python/SavedModels/tng_s1234567_model_4L.hdf5"
+    return "./NeuralNet.Python/SavedModels/tng_s1234567_model_5L_pass4.hdf5"
 
 def tokenize_words(input):
         input = input
 
-        tokenizer = RegexpTokenizer(r"[\w,.:&']+")
+        tokenizer = RegexpTokenizer(r"[\w,.:&()[\]']+")
         tokens = tokenizer.tokenize(input)
 
         filtered = filter(lambda token: token not in stopwords.words('english'), tokens)
@@ -83,10 +84,12 @@ def generate_prediction_model(x_data, y_data, chars):
 
     return X, y
 
-def create_model(X, y, new_model):
+def create_model(X, y):
 
     model = Sequential()
-    model.add(CuDNNLSTM(256, input_shape=(X.shape[1], X.shape[2]), return_sequences=True))
+    model.add(CuDNNLSTM(512, input_shape=(X.shape[1], X.shape[2]), return_sequences=True))
+    model.add(Dropout(0.2))
+    model.add(CuDNNLSTM(256, return_sequences=True))
     model.add(Dropout(0.2))
     model.add(CuDNNLSTM(256, return_sequences=True))
     model.add(Dropout(0.2))
@@ -94,7 +97,7 @@ def create_model(X, y, new_model):
     model.add(Dropout(0.2))
     model.add(Dense(y.shape[1], activation='softmax'))
 
-    if (new_model == 0):
+    if (os.path.isfile(get_model_filename())):
         model.load_weights(get_model_filename())
     
     model.compile(loss='categorical_crossentropy', optimizer='adam')
