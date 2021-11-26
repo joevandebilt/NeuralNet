@@ -2,6 +2,7 @@
 import numpy
 import math
 import os
+import sys
 from GenerateData import hard_coded_chars, generate_data_array, generate_prediction_model, create_model, read_all_scripts
 
 #How many characters to generate
@@ -36,7 +37,7 @@ start = numpy.random.randint(0, len(x_data) - 1)
 text_output = x_data[start]
 pattern = text_output.copy()
 
-for i in range(1000):
+for i in range(500):
 
     x = numpy.reshape(pattern, (1, len(pattern), 1))
     x = x / float(len(chars))
@@ -45,8 +46,8 @@ for i in range(1000):
 
     index = numpy.argmax(prediction)
 
-    #result = num_to_char[index]
-    #sys.stdout.write(result)
+    result = num_to_char[index]
+    sys.stdout.write(result)
 
     text_output.append(index)
     pattern.append(index)

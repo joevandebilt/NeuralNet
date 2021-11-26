@@ -15,7 +15,7 @@ def get_sequence_length():
 def get_model_filename():
     #return "./NeuralNet.Python/SavedModels/tng_s1_model_4L.hdf5"
     #return "./NeuralNet.Python/SavedModels/tng_s1234567_model_4L.hdf5"
-    return "./NeuralNet.Python/SavedModels/tng_s1234567_model_5L_pass4.hdf5"
+    return "./NeuralNet.Python/SavedModels/tng_s1234567_model_5L_pass5.hdf5"
 
 def tokenize_words(input):
         input = input

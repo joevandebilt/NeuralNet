@@ -1,16 +1,15 @@
-import tensorflow as tf
-from tensorflow.keras.layers.experimental import preprocessing
+from tensorflow.keras.preprocessing import text
+from textgenrnn import textgenrnn
 
-import numpy as np
-import os
-import time
 
-from GenerateData import read_all_scripts
+#textgen = textgenrnn()
+#textgen.train_from_largetext_file("./Data/Combined.txt", new_model=True)
+#textgen.save("./NeuralNet.Python/SavedModels/textgenrnn_model.hdf5")
+#textgen.generate()
 
-text = read_all_scripts()
-print(f'Length of text: {len(text)} characters')
+weights_path = "./NeuralNet.Python/SavedModels/textgenrnn_model.hdf5"
+vocab_path = "./NeuralNet.Python/SavedModels/textgenrnn_vocab.json"
 
-print(text[:250])
-
-vocab = sorted(set(text))
-print(f'{len(vocab)} unique characters')
+textgen = textgenrnn(weights_path=weights_path, vocab_path=vocab_path)
+#textgen.train_from_largetext_file("./Data/Combined.txt", new_model=False)
+textgen.generate(3, temperature=0.3, max_gen_length=500)

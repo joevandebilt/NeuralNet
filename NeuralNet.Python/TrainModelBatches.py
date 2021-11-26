@@ -25,7 +25,7 @@ for root, dirs, files in os.walk('./Data/TNG Scripts'):
                 checkpoint = ModelCheckpoint(get_model_filename(), monitor='loss', verbose=1, save_best_only=True, mode='min')
                 desired_callbacks = [checkpoint]
 
-                history = model.fit(X, y, epochs=3, batch_size=256, callbacks=desired_callbacks)
+                history = model.fit(X, y, epochs=10, batch_size=256, callbacks=desired_callbacks)
                 improvements.append( round(checkpoint.best, 4))
 
 print(improvements)
